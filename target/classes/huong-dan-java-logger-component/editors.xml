@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/huong-dan-java-logger-component" prefix="huong-dan-java-logger-component">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="Huong Dan Java Logger Component" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/huong-dan-java-logger-component/abstractHuong-dan-java-logger-componentConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="Huong Dan Java Logger Component: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/huong-dan-java-logger-component-connector-small.png" localId="config" image="icons/theme.classic/huong-dan-java-logger-component-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/huong-dan-java-logger-component/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Huong-dan-java-logger-component configuration properties.">
+      <group id="huong-dan-java-logger-componentGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="general" caption="General">
+        <string defaultValue="Hello" name="greeting" caption="Greeting" description="Greeting message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="How are you?" name="reply" caption="Reply" description="Reply message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstracthuong-dan-java-logger-componentconnectorgeneric" description="Interact with Huong-dan-java-logger-component." icon="icons/theme.classic/huong-dan-java-logger-component-connector-small.png" localId="abstractHuong-dan-java-logger-componentConnectorGeneric" image="icons/theme.classic/huong-dan-java-logger-component-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractHuong-dan-java-logger-componentConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/huong-dan-java-logger-component/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.huong-dan-java-logger-component" caption="Huong Dan Java Logger Component" description="" icon="icons/theme.classic/huong-dan-java-logger-component-connector-small.png" localId="huong-dan-java-logger-component-connector" image="icons/theme.classic/huong-dan-java-logger-component-connector-large.png" extends="http://www.mulesoft.org/schema/mule/huong-dan-java-logger-component/abstractHuong-dan-java-logger-componentConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="huong-dan-java-logger-componentConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Huong-dan-java-logger-component operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/huong-dan-java-logger-component/abstractHuong-dan-java-logger-componentConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/huong-dan-java-logger-component/greet" modeLabel="Greet"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Greet" icon="icons/theme.classic/huong-dan-java-logger-component-connector-small.png" localId="greet" image="icons/theme.classic/huong-dan-java-logger-component-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/huong-dan-java-logger-component/abstractHuong-dan-java-logger-componentConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="friend" caption="Friend" description="Name to be used to generate a greeting message." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>

@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(huong-dan-java-logger-component:greet) -->
+    <huong-dan-java-logger-component:greet config-ref="" friend="#[map-payload:friend]" />
+<!-- END_INCLUDE(huong-dan-java-logger-component:greet) -->
