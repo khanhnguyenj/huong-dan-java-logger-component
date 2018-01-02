@@ -11,7 +11,7 @@ import org.mule.api.MetadataAware;
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.9.0", date = "2018-01-02T04:15:48+07:00", comments = "Build UNNAMED.2793.f49b6c7")
+@Generated(value = "Mule DevKit Version 3.9.0", date = "2018-01-02T04:17:46+07:00", comments = "Build UNNAMED.2793.f49b6c7")
 public class HuongDanJavaLoggerComponentConnectorMetadataAdapter
     extends HuongDanJavaLoggerComponentConnectorCapabilitiesAdapter
     implements MetadataAware
