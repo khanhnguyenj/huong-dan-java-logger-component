@@ -19,11 +19,11 @@ public class HuongDanJavaLoggerComponentConnector {
      * @return A greeting message
      */
     @Processor
-    public String greet(String friend) {
+    public String logging() {
         /*
          * MESSAGE PROCESSOR CODE GOES HERE
          */
-        return config.getGreeting() + " " + friend + ". " + config.getReply();
+        return config.getCorrelationId();
     }
 
     public ConnectorConfig getConfig() {

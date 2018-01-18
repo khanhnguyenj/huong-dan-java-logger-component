@@ -1,56 +1,42 @@
 package com.huongdanjava.hdjlogger.config;
 
-import org.mule.api.annotations.components.Configuration;
 import org.mule.api.annotations.Configurable;
+import org.mule.api.annotations.components.Configuration;
+import org.mule.api.annotations.display.FriendlyName;
+import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.param.Default;
+import org.mule.api.annotations.param.Optional;
+
+import com.huongdanjava.hdjlogger.constant.Text;
 
 @Configuration(friendlyName = "Configuration")
 public class ConnectorConfig {
 
-    /**
-     * Greeting message
-     */
-    @Configurable
-    @Default("Hello")
-    private String greeting;
+	@Configurable
+	@Placement(group = Text.GENERIC, order = 1)
+	@Optional
+	@FriendlyName(Text.CORRELATION_ID)
+	@Default("#[message.rootId]")
+	private String correlationId;
 
-    /**
-     * Reply message
-     */
-    @Configurable
-    @Default("How are you?")
-    private String reply;
+	@Configurable
+	@Placement(group = Text.GENERIC, order = 2)
+	private String category;
 
-    /**
-     * Set greeting message
-     *
-     * @param greeting the greeting message
-     */
-    public void setGreeting(String greeting) {
-        this.greeting = greeting;
-    }
+	public String getCorrelationId() {
+		return correlationId;
+	}
 
-    /**
-     * Get greeting message
-     */
-    public String getGreeting() {
-        return this.greeting;
-    }
+	public void setCorrelationId(String correlationId) {
+		this.correlationId = correlationId;
+	}
 
-    /**
-     * Set reply
-     *
-     * @param reply the reply
-     */
-    public void setReply(String reply) {
-        this.reply = reply;
-    }
+	public String getCategory() {
+		return category;
+	}
 
-    /**
-     * Get reply
-     */
-    public String getReply() {
-        return this.reply;
-    }
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 }
