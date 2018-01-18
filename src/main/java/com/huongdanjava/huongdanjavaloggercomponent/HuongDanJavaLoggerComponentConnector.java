@@ -6,7 +6,7 @@ import org.mule.api.annotations.Processor;
 
 import com.huongdanjava.huongdanjavaloggercomponent.config.ConnectorConfig;
 
-@Connector(name="huong-dan-java-logger-component", friendlyName="Huong Dan Java Logger Component")
+@Connector(name="huong-dan-java-logger-component", friendlyName="HDJ Logger Component")
 public class HuongDanJavaLoggerComponentConnector {
 
     @Config
