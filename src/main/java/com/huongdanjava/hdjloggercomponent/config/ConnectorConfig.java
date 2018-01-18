@@ -1,4 +1,4 @@
-package com.huongdanjava.huongdanjavaloggercomponent.config;
+package com.huongdanjava.hdjloggercomponent.config;
 
 import org.mule.api.annotations.components.Configuration;
 import org.mule.api.annotations.Configurable;

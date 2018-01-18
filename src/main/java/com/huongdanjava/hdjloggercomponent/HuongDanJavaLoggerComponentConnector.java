@@ -1,10 +1,10 @@
-package com.huongdanjava.huongdanjavaloggercomponent;
+package com.huongdanjava.hdjloggercomponent;
 
 import org.mule.api.annotations.Config;
 import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Processor;
 
-import com.huongdanjava.huongdanjavaloggercomponent.config.ConnectorConfig;
+import com.huongdanjava.hdjloggercomponent.config.ConnectorConfig;
 
 @Connector(name="huong-dan-java-logger-component", friendlyName="HDJ Logger Component")
 public class HuongDanJavaLoggerComponentConnector {
