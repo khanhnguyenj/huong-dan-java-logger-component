@@ -10,6 +10,7 @@ import org.mule.api.annotations.display.FriendlyName;
 import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
+import org.slf4j.MDC;
 
 import com.huongdanjava.hdjlogger.config.ConnectorConfig;
 import com.huongdanjava.hdjlogger.constant.LoggingLevel;
@@ -18,6 +19,8 @@ import com.huongdanjava.hdjlogger.constant.Text;
 @Connector(name="huong-dan-java-logger-component", friendlyName="Huong Dan Java Logger")
 @Category(name = "org.mule.tooling.category.core", description = "Components")
 public class HuongDanJavaLoggerComponentConnector {
+
+	private static final String CORRELATION_ID_ELEMENT = "correlationId";
 
     @Config
     ConnectorConfig config;
@@ -32,6 +35,8 @@ public class HuongDanJavaLoggerComponentConnector {
 		MuleEvent event) {
     	String category = getCategory(config, globalCategoryOverride);
     	String correlationId = getCorrelationId(config, globalCorrelationIdOverride);
+
+    	MDC.put(CORRELATION_ID_ELEMENT, correlationId);
 
         return event.getMessage().getPayload();
     }
