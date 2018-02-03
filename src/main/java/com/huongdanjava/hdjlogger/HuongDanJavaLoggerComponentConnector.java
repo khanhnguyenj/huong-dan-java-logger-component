@@ -1,5 +1,6 @@
 package com.huongdanjava.hdjlogger;
 
+import org.apache.commons.lang.StringUtils;
 import org.mule.api.MuleEvent;
 import org.mule.api.annotations.Category;
 import org.mule.api.annotations.Config;
@@ -27,11 +28,29 @@ public class HuongDanJavaLoggerComponentConnector {
 		@Placement(group = Text.GENERIC, order = 2) @Default("INFO") @FriendlyName(Text.LEVEL) LoggingLevel loggingLevel,
 
 		@Placement(group = Text.OVERRIDE, order = 1) @Optional @FriendlyName(Text.OVVERIDE_CORRELATION_ID) String globalCorrelationIdOverride,
-		@Placement(group = Text.OVERRIDE, order = 2) @Optional @FriendlyName(Text.OVVERIDE_CATEGORY) String overrideGlobalCategoryOverride,
+		@Placement(group = Text.OVERRIDE, order = 2) @Optional @FriendlyName(Text.OVVERIDE_CATEGORY) String globalCategoryOverride,
 		MuleEvent event) {
+    	String category = getCategory(config, globalCategoryOverride);
+    	String correlationId = getCorrelationId(config, globalCorrelationIdOverride);
 
         return event.getMessage().getPayload();
     }
+
+    private String getCorrelationId(ConnectorConfig cc, String globalCorrelationIdOverride) {
+    	if (!StringUtils.isEmpty(globalCorrelationIdOverride)) {
+			return globalCorrelationIdOverride;
+		}
+
+		return cc.getCorrelationId();
+    }
+
+    private String getCategory(ConnectorConfig cc, String globalCategoryOverride) {
+		if (!StringUtils.isEmpty(globalCategoryOverride)) {
+			return globalCategoryOverride;
+		}
+
+		return cc.getCategory();
+	}
 
     public ConnectorConfig getConfig() {
         return config;

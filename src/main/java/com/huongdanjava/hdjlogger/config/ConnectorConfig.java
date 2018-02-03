@@ -5,7 +5,6 @@ import org.mule.api.annotations.components.Configuration;
 import org.mule.api.annotations.display.FriendlyName;
 import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.param.Default;
-import org.mule.api.annotations.param.Optional;
 
 import com.huongdanjava.hdjlogger.constant.Text;
 
@@ -14,7 +13,6 @@ public class ConnectorConfig {
 
 	@Configurable
 	@Placement(group = Text.GENERIC, order = 1)
-	@Optional
 	@FriendlyName(Text.CORRELATION_ID)
 	@Default("#[message.rootId]")
 	private String correlationId;
