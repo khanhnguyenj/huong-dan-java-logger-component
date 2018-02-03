@@ -40,7 +40,7 @@ public class HuongDanJavaLoggerComponentConnector {
 		@Placement(group = Text.OVERRIDE, order = 2) @Optional @FriendlyName(Text.OVVERIDE_CATEGORY) String globalCategoryOverride,
 		MuleEvent event) {
     	String category = getCategory(config, globalCategoryOverride);
-    	String correlationId = getCorrelationId(config, globalCorrelationIdOverride);
+    	String correlationId = getEvaluatedCorrelationId(event, config, globalCorrelationIdOverride);
 
     	MDC.put(CORRELATION_ID_ELEMENT, correlationId);
 
@@ -99,12 +99,12 @@ public class HuongDanJavaLoggerComponentConnector {
 		return evaluateMEL(event, message);
 	}
 
-	private String getCorrelationId(ConnectorConfig cc, String globalCorrelationIdOverride) {
+	private String getEvaluatedCorrelationId(MuleEvent event, ConnectorConfig cc, String globalCorrelationIdOverride) {
     	if (!StringUtils.isEmpty(globalCorrelationIdOverride)) {
-			return globalCorrelationIdOverride;
+			return evaluateMEL(event, globalCorrelationIdOverride);
 		}
 
-		return cc.getCorrelationId();
+		return evaluateMEL(event, cc.getCorrelationId());
     }
 
     private String getCategory(ConnectorConfig cc, String globalCategoryOverride) {
