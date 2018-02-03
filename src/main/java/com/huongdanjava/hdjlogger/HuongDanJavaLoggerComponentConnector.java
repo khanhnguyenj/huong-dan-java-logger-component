@@ -45,9 +45,46 @@ public class HuongDanJavaLoggerComponentConnector {
     	MDC.put(CORRELATION_ID_ELEMENT, correlationId);
 
     	String evaluatedMessage = getEvaluatedMessage(event, message);
+    	Logger logger = LoggerFactory.getLogger(category);
+    	if (evaluatedMessage != null) {
+			doLogging(logger, loggingLevel, evaluatedMessage);
+		}
 
         return event.getMessage().getPayload();
     }
+
+    private void doLogging(Logger logger, LoggingLevel loggingLevel, String message) {
+		switch (loggingLevel) {
+			case DEBUG:
+				if (logger.isDebugEnabled()) {
+					logger.debug(message);
+				}
+				break;
+			case WARN:
+				if (logger.isWarnEnabled()) {
+					logger.warn(message);
+				}
+				break;
+			case INFO:
+				if (logger.isInfoEnabled()) {
+					logger.info(message);
+				}
+				break;
+			case ERROR:
+				if (logger.isErrorEnabled()) {
+					logger.error(message);
+				}
+				break;
+			case TRACE:
+				if (logger.isTraceEnabled()) {
+					logger.trace(message);
+				}
+				break;
+			default:
+				LOGGER.warn("No Logging Level was set");
+				break;
+		}
+	}
 
     private String getEvaluatedMessage(MuleEvent event, String message) {
     	if (StringUtils.isEmpty(message)) {

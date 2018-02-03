@@ -6,7 +6,7 @@
     <artifactId>huong-dan-java-logger-component</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>mule-module</packaging>
-    <name>Mule HuongDanJavaLoggerComponent Anypoint Connector</name>
+    <name>Huong Dan Java Logger Component</name>
 
     <parent>
         <groupId>org.mule.tools.devkit</groupId>
